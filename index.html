@@ -99,7 +99,7 @@
                             </h1>
                             <p class="text-gray-600 text-lg mb-6 leading-relaxed">
                                 <span data-lang="cn">聚焦移动感知、智能物联网与空间智能，强化学习与具身智能，以及可信机器学习与智能体等方向的前沿研究</span>
-                                <span data-lang="en" class="hidden">Focused on cutting-edge research in mobile sensing, intelligent IoT and spatial intelligence, reinforcement learning and embodied intelligence, and trustworthy machine learning and agents</span>
+                                <span data-lang="en" class="hidden">Advancing research in mobile sensing, intelligent IoT and spatial intelligence, reinforcement learning and embodied intelligence, and trustworthy machine learning and agents</span>
                             </p>
                             <p class="text-gray-600 mb-6 leading-relaxed">
                                 <span data-lang="cn">长期欢迎博士后、博士研究生、硕士研究生和优秀本科生加入课题组，共同开展前沿研究。</span>
@@ -138,7 +138,7 @@
                                         </svg>
                                         <span class="text-gray-600">
                                             <span data-lang="cn">强化学习与具身智能</span>
-                                            <span data-lang="en" class="hidden">Reinforcement learning and embodied intelligence</span>
+                                            <span data-lang="en" class="hidden">Reinforcement Learning and Embodied Intelligence</span>
                                         </span>
                                     </div>
                                     <div class="flex items-center">
@@ -180,8 +180,8 @@
                             <div class="space-y-4 text-gray-600">
                                 <p data-lang="cn">牛晓光教授是武汉大学计算机学院的资深教授，CCF、IEEE、ACM会员，并担任CCF物联网专委会委员及教育部创新团队成员。他的研究方向主要包括移动感知、智能物联网与空间智能，强化学习与具身智能，以及可信机器学习与智能体。</p>
                                 <p data-lang="cn">牛教授主持了多项重要科研项目，包括国家自然科学基金、国家重点研发计划项目子课题、湖北省自然科学基金、湖北省教改项目，以及教育部重点实验室开放基金。他作为研究骨干获得了中国测绘科技进步特等奖和北京市科技进步三等奖，并在国际期刊和会议上发表了81篇论文，其中期刊论文46篇。此外，他还担任多个国际会议和SCI期刊的审稿人。</p>
-                                <p data-lang="en" class="hidden">Prof. Xiaoguang Niu is a distinguished professor at the School of Computer Science, Wuhan University, and a member of CCF, IEEE, and ACM. He serves as a committee member of CCF IoT and a member of the Ministry of Education's innovation team. His research focuses on mobile sensing, intelligent IoT and spatial intelligence, reinforcement learning and embodied intelligence, and trustworthy machine learning and agents.</p>
-                                <p data-lang="en" class="hidden">Prof. Niu has led numerous significant research projects, including the National Natural Science Foundation, sub-projects of the National Key R&D Program, Hubei Provincial Natural Science Foundation, Hubei Provincial Education Reform Project, and the Ministry of Education Key Laboratory Open Fund. As a key researcher, he has received the China Surveying and Mapping Science and Technology Progress Special Award and the Beijing Science and Technology Progress Third Prize. He has published 81 papers in international journals and conferences, including 46 journal papers. Additionally, he serves as a reviewer for several international conferences and SCI journals.</p>
+                                <p data-lang="en" class="hidden">Prof. Xiaoguang Niu is a professor at the School of Computer Science, Wuhan University, and a member of CCF, IEEE, and ACM. He serves on the CCF Technical Committee on IoT and is a member of a Ministry of Education innovation team. His research focuses on mobile sensing, intelligent IoT and spatial intelligence, reinforcement learning and embodied intelligence, and trustworthy machine learning and agents.</p>
+                                <p data-lang="en" class="hidden">Prof. Niu has led a range of major research projects, including projects supported by the National Natural Science Foundation of China, sub-projects of the National Key R&D Program of China, the Hubei Provincial Natural Science Foundation, Hubei provincial education reform programs, and open funds from Ministry of Education key laboratories. As a key contributor, he has received the China Surveying and Mapping Science and Technology Progress Special Award and the Beijing Science and Technology Progress Third Prize. He has published 81 papers in international journals and conferences, including 46 journal papers, and serves as a reviewer for multiple international conferences and SCI journals.</p>
                             </div>
                         </div>
                     </div>
@@ -295,7 +295,7 @@
                         </button>
                         <button class="px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-50" data-type="conference">
                             <span data-lang="cn">会议</span>
-                            <span data-lang="en" class="hidden">Conference</span>
+                            <span data-lang="en" class="hidden">Conferences</span>
                         </button>
                     </div>
 
@@ -316,19 +316,20 @@
                             <span data-lang="cn">组内成员</span>
                             <span data-lang="en">Team Members</span>
                         </h2>
-                        
-                        <!-- 成员头像预览（一排） -->
-                        <div class="members-preview">
-                            <div class="member-avatar-preview" data-category="phd">
-                                <img src="fig/ic_student.svg" alt="PhD Students">
-                            </div>
-                            <div class="member-avatar-preview" data-category="master">
-                                <img src="fig/master.svg" alt="Master Students">
-                            </div>
+
+                        <div class="member-tabs" role="tablist" aria-label="Member groups">
+                            <button class="member-tab active" type="button" data-member-tab="current" aria-selected="true">
+                                <span data-lang="cn">在读学生</span>
+                                <span data-lang="en">Current Students</span>
+                            </button>
+                            <button class="member-tab" type="button" data-member-tab="alumni" aria-selected="false">
+                                <span data-lang="cn">已毕业学生</span>
+                                <span data-lang="en">Alumni</span>
+                            </button>
                         </div>
-                        
+
                         <!-- 成员详细信息（默认隐藏） -->
-                        <div class="members-detail">
+                        <div class="members-detail active">
                             <!-- 博士生 -->
                             <div class="member-category" id="phd">
                                 <h3 class="text-xl font-medium text-gray-900 mb-4">
@@ -356,7 +357,7 @@
                                         </div>
                                         <p class="text-gray-600 text-sm">
                                             <span data-lang="cn">研究方向：含噪标签学习</span>
-                                            <span data-lang="en">Research: Label Noise Learning</span>
+                                            <span data-lang="en">Research: Noisy-Label Learning</span>
                                         </p>
                                         <!-- <p class="text-gray-600 text-sm mt-1">
                                             <span data-lang="cn">毕业去向：&nbsp;</span>
@@ -378,7 +379,7 @@
                                         </div>
                                         <p class="text-gray-600 text-sm">
                                             <span data-lang="cn">研究方向：强化学习</span>
-                                            <span data-lang="en">Research: Reinforcement learning </span>
+                                            <span data-lang="en">Research: Reinforcement Learning</span>
                                         </p>
                                         <!-- <p class="text-gray-600 text-sm mt-1">
                                             <span data-lang="cn">毕业去向：&nbsp;</span>
@@ -404,7 +405,7 @@
                                         </div>
                                         <p class="text-gray-600 text-sm">
                                             <span data-lang="cn">研究方向：含噪标签学习</span>
-                                            <span data-lang="en">Research: Label noise learning</span>
+                                            <span data-lang="en">Research: Noisy-Label Learning</span>
                                         </p>
                                         <!-- <p class="text-gray-600 text-sm mt-1">
                                             <span data-lang="cn">毕业去向：&nbsp;</span>
@@ -428,7 +429,7 @@
                                         </div>
                                         <p class="text-gray-600 text-sm">
                                             <span data-lang="cn">研究方向：室内定位</span>
-                                            <span data-lang="en">Research: Indoor Position</span>
+                                            <span data-lang="en">Research: Indoor Localization</span>
                                         </p>
                                         <!-- <p class="text-gray-600 text-sm mt-1">
                                             <span data-lang="cn">毕业去向：&nbsp;</span>
@@ -452,7 +453,7 @@
                                         </div>
                                         <p class="text-gray-600 text-sm">
                                             <span data-lang="cn">研究方向：含噪标签学习</span>
-                                            <span data-lang="en">Research: Label noise learning</span>
+                                            <span data-lang="en">Research: Noisy-Label Learning</span>
                                         </p>
                                         <!-- <p class="text-gray-600 text-sm mt-1">
                                             <span data-lang="cn">毕业去向：&nbsp;</span>
@@ -476,7 +477,7 @@
                                         </div>
                                         <p class="text-gray-600 text-sm">
                                             <span data-lang="cn">研究方向：全色锐化，图像融合</span>
-                                            <span data-lang="en">Research: Pansharpenning, Image fusion </span>
+                                            <span data-lang="en">Research: Pansharpening and Image Fusion</span>
                                         </p>
                                         <!-- <p class="text-gray-600 text-sm mt-1">
                                             <span data-lang="cn">毕业去向：&nbsp;</span>
@@ -507,9 +508,7 @@
                                                 </h4>
                                                 <p class="text-gray-600">
                                                     <span data-lang="cn">2025级硕士生</span>
-                                                    <span data-lang="en">Master Student</span>
-                                                <hr/>
-                                                <span data-lang="en">(2025-present)</span>
+                                                    <span data-lang="en">Master Student (2025-present)</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -532,9 +531,7 @@
                                                 </h4>
                                                 <p class="text-gray-600">
                                                     <span data-lang="cn">2025级硕士生</span>
-                                                    <span data-lang="en">Master Student</span>
-                                                <hr/>
-                                                <span data-lang="en">(2025-present)</span>
+                                                    <span data-lang="en">Master Student (2025-present)</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -557,9 +554,7 @@
                                                 </h4>
                                                 <p class="text-gray-600">
                                                     <span data-lang="cn">2025级硕士生</span>
-                                                    <span data-lang="en">Master Student</span>
-                                                <hr/>
-                                                <span data-lang="en">(2025-present)</span>
+                                                    <span data-lang="en">Master Student (2025-present)</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -583,15 +578,13 @@
                                                 </h4>
                                                 <p class="text-gray-600">
                                                     <span data-lang="cn">2025级硕士生</span>
-                                                    <span data-lang="en">Master Student</span>
-                                                <hr/>
-                                                <span data-lang="en">(2025-present)</span>
+                                                    <span data-lang="en">Master Student (2025-present)</span>
                                                 </p>
                                             </div>
                                         </div>
                                         <p class="text-gray-600 text-sm">
                                             <span data-lang="cn">研究方向：强化学习</span>
-                                            <span data-lang="en">Research: Reinforcement learning</span>
+                                            <span data-lang="en">Research: Reinforcement Learning</span>
                                         </p>
                                         <!-- <p class="text-gray-600 text-sm mt-1">
                                             <span data-lang="cn">毕业去向：&nbsp;</span>
@@ -607,9 +600,7 @@
                                                 </h4>
                                                 <p class="text-gray-600">
                                                     <span data-lang="cn">2024级硕士生</span>
-                                                    <span data-lang="en">Master Student </span>
-                                                    <hr/>
-                                                    <span data-lang="en">(2024-present)</span>
+                                                    <span data-lang="en">Master Student (2024-present)</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -633,9 +624,7 @@
                                                 </h4>
                                                 <p class="text-gray-600">
                                                     <span data-lang="cn">2024级硕士生</span>
-                                                    <span data-lang="en">Master Student </span>
-                                                <hr/>
-                                                <span data-lang="en">(2024-present)</span>
+                                                    <span data-lang="en">Master Student (2024-present)</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -659,9 +648,7 @@
                                                 </h4>
                                                 <p class="text-gray-600">
                                                     <span data-lang="cn">2024级硕士生</span>
-                                                    <span data-lang="en">Master Student </span>
-                                                <hr/>
-                                                <span data-lang="en">(2024-present)</span>
+                                                    <span data-lang="en">Master Student (2024-present)</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -685,9 +672,7 @@
                                                 </h4>
                                                 <p class="text-gray-600">
                                                     <span data-lang="cn">2023级硕士生</span>
-                                                    <span data-lang="en">Master Student</span>
-                                                <hr/>
-                                                <span data-lang="en">(2023-present)</span>
+                                                    <span data-lang="en">Master Student (2023-present)</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -711,9 +696,7 @@
                                                 </h4>
                                                 <p class="text-gray-600">
                                                     <span data-lang="cn">2023级硕士生</span>
-                                                    <span data-lang="en">Master Student</span>
-                                                <hr/>
-                                                <span data-lang="en">(2023-present)</span>
+                                                    <span data-lang="en">Master Student (2023-present)</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -737,15 +720,13 @@
                                                 </h4>
                                                 <p class="text-gray-600">
                                                     <span data-lang="cn">2023级硕士生</span>
-                                                    <span data-lang="en">Master Student</span>
-                                                <hr/>
-                                                <span data-lang="en">(2023-present)</span>
+                                                    <span data-lang="en">Master Student (2023-present)</span>
                                                 </p>
                                             </div>
                                         </div>
                                         <p class="text-gray-600 text-sm">
                                             <span data-lang="cn">研究方向：6D位姿估计和强化学习</span>
-                                            <span data-lang="en">Research: 6D Pose estimation and reinforcement learning</span>
+                                            <span data-lang="en">Research: 6D Pose Estimation and Reinforcement Learning</span>
                                         </p>
                                         <!-- <p class="text-gray-600 text-sm mt-1">
                                             <span data-lang="cn">毕业去向：&nbsp;</span>
@@ -763,7 +744,7 @@
                             </div>
                             
                             <!-- 已毕业学生 -->
-                            <div class="member-category mt-8" id="alumni">
+                            <div class="member-category mt-8 hidden" id="alumni">
                                 <h3 class="text-xl font-medium text-gray-900 mb-4">
                                     <span data-lang="cn">已毕业学生</span>
                                     <span data-lang="en">Alumni</span>
@@ -1626,7 +1607,7 @@
                                     </li>
                                     <li>
                                         <span data-lang="cn">具备良好的编程能力，熟悉至少一种编程语言（如C/C++、Python、Java等）</span>
-                                        <span data-lang="en" class="hidden">Good programming skills, proficient in at least one programming language (e.g., C/C++, Python, Java)</span>
+                                        <span data-lang="en" class="hidden">Good programming skills and proficiency in at least one programming language, such as C/C++, Python, or Java</span>
                                     </li>
                                     <li>
                                         <span data-lang="cn">有较强的英语读写能力，能够阅读英文文献并撰写英文论文</span>
@@ -1634,7 +1615,7 @@
                                     </li>
                                     <li>
                                         <span data-lang="cn">有相关研究经验或发表过相关论文者优先</span>
-                                        <span data-lang="en" class="hidden">Priority given to those with relevant research experience or published papers</span>
+                                        <span data-lang="en" class="hidden">Applicants with relevant research experience or publications are preferred</span>
                                     </li>
                                 </ul>
                             </div>
@@ -1649,13 +1630,13 @@
                                         请将您的个人简历、成绩单、研究计划和代表性论文（如有）发送至邮箱：xgniu@whu.edu.cn，邮件主题请注明"申请加入课题组-姓名-学历层次"。
                                     </span>
                                     <span data-lang="en" class="hidden">
-                                        Please send your CV, transcript, research plan, and representative papers (if any) to: xgniu@whu.edu.cn. Please specify "Application to Join Research Group-Name-Degree Level" in the email subject.
+                                        Please send your CV, transcript, research plan, and representative papers (if any) to xgniu@whu.edu.cn. Please use "Application to Join the Research Group - Name - Degree Level" as the email subject.
                                     </span>
                                 </p>
                             </div>
                             
                             <div class="flex justify-center mt-6">
-                                <a href="#contact" class="px-6 py-3 bg-gray-900 text-white rounded-md hover:bg-gray-800 inline-flex items-center gap-2">
+                                <a href="#contact" data-copy-email="xgniu@whu.edu.cn" class="px-6 py-3 bg-gray-900 text-white rounded-md hover:bg-gray-800 inline-flex items-center gap-2">
                                     <span data-lang="cn">联系我们</span>
                                     <span data-lang="en" class="hidden">Contact Us</span>
                                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
