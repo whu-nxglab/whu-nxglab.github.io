@@ -342,7 +342,7 @@ const papers = {
 
 
 // 语言状态
-let currentLang = 'cn';  // 默认为英文
+let currentLang = 'en';  // 默认为英文
 
 // 控制论文显示数量
 let showAllPapers = false;
