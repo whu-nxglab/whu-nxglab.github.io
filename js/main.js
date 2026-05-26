@@ -904,15 +904,21 @@ async function copyTextToClipboard(text) {
 function showCopyFeedback(button) {
     const cnText = button.querySelector('[data-lang="cn"]');
     const enText = button.querySelector('[data-lang="en"]');
+    const icon = button.querySelector('[data-copy-icon]');
     const originalCn = cnText?.textContent;
     const originalEn = enText?.textContent;
+    const originalIcon = icon?.innerHTML;
 
     if (cnText) cnText.textContent = '邮箱已复制';
     if (enText) enText.textContent = 'Email Copied';
+    if (icon) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>';
+    }
 
     window.setTimeout(() => {
         if (cnText && originalCn) cnText.textContent = originalCn;
         if (enText && originalEn) enText.textContent = originalEn;
+        if (icon && originalIcon) icon.innerHTML = originalIcon;
     }, 1800);
 }
 
