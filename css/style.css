@@ -114,7 +114,18 @@ img {
 }
 
 .members-detail.active {
-    max-height: 2000px;
+    max-height: 38rem;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.members-detail.active::-webkit-scrollbar {
+    width: 6px;
+}
+
+.members-detail.active::-webkit-scrollbar-thumb {
+    background: #c7cdd8;
+    border-radius: 999px;
 }
 
 .member-grid {
@@ -135,4 +146,122 @@ img {
 .member-card:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transform: translateY(-5px);
+}
+
+/* 学术成果统计条 */
+.publication-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.publication-stat-item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.375rem;
+    padding-right: 1rem;
+    color: #4b5563;
+    font-size: 0.875rem;
+}
+
+.publication-stat-value {
+    color: #111827;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.publication-search {
+    margin-bottom: 1rem;
+}
+
+.publication-search input {
+    width: 100%;
+    max-width: 32rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    color: #111827;
+    outline: none;
+}
+
+.publication-search input:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+}
+
+.publications-window {
+    max-height: 34rem;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.publications-window::-webkit-scrollbar {
+    width: 6px;
+}
+
+.publications-window::-webkit-scrollbar-thumb {
+    background: #c7cdd8;
+    border-radius: 999px;
+}
+
+/* 已毕业学生：无头像紧凑卡片 */
+#alumni .member-grid {
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 0.875rem;
+}
+
+#alumni .member-card {
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: none;
+}
+
+#alumni .member-card:hover {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+#alumni .member-card img {
+    display: none;
+}
+
+#alumni .member-card .flex.items-center {
+    margin-bottom: 0.5rem;
+}
+
+#alumni .member-card .flex.items-center > div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.75rem;
+}
+
+#alumni .member-card h4 {
+    font-size: 1rem;
+    line-height: 1.4;
+    min-width: 0;
+}
+
+#alumni .member-card .text-gray-600:not(.text-sm) {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 999px;
+    background-color: #eef2ff;
+    color: #4338ca;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    white-space: nowrap;
+}
+
+#alumni .member-card .text-sm {
+    margin-top: 0.375rem;
+    color: #4b5563;
+    line-height: 1.45;
 }
