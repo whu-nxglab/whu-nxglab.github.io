@@ -721,9 +721,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 设置成员卡片点击事件
     setupMemberCards();
+
+    // 设置成员分组切换
+    setupMemberTabs();
     
-    // 设置成员头像点击事件
-    setupMembersPreview();
 });
 
 // 切换语言函数
@@ -855,6 +856,14 @@ function setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
+
+            const emailToCopy = this.getAttribute('data-copy-email');
+            if (emailToCopy) {
+                copyTextToClipboard(emailToCopy).then(() => {
+                    showCopyFeedback(this);
+                });
+                return;
+            }
             
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
@@ -875,6 +884,44 @@ function setupSmoothScroll() {
     });
 }
 
+async function copyTextToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+}
+
+function showCopyFeedback(button) {
+    const cnText = button.querySelector('[data-lang="cn"]');
+    const enText = button.querySelector('[data-lang="en"]');
+    const icon = button.querySelector('[data-copy-icon]');
+    const originalCn = cnText?.textContent;
+    const originalEn = enText?.textContent;
+    const originalIcon = icon?.innerHTML;
+
+    if (cnText) cnText.textContent = '邮箱已复制';
+    if (enText) enText.textContent = 'Email Copied';
+    if (icon) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>';
+    }
+
+    window.setTimeout(() => {
+        if (cnText && originalCn) cnText.textContent = originalCn;
+        if (enText && originalEn) enText.textContent = originalEn;
+        if (icon && originalIcon) icon.innerHTML = originalIcon;
+    }, 1800);
+}
+
 // 设置成员卡片点击展开/收起的功能
 function setupMemberCards() {
     const memberCards = document.querySelectorAll('.member-card');
@@ -882,6 +929,7 @@ function setupMemberCards() {
     memberCards.forEach(card => {
         card.addEventListener('click', function() {
             const info = this.querySelector('.member-info');
+            if (!info) return;
             
             // 切换显示/隐藏
             if (info.classList.contains('hidden')) {
@@ -903,47 +951,37 @@ function setupMemberCards() {
     });
 }
 
-// 设置成员头像预览点击事件
-function setupMembersPreview() {
-    const avatarPreviews = document.querySelectorAll('.member-avatar-preview');
+function setupMemberTabs() {
+    const tabButtons = document.querySelectorAll('[data-member-tab]');
     const membersDetail = document.querySelector('.members-detail');
+    const currentCategories = [
+        document.getElementById('phd'),
+        document.getElementById('master')
+    ].filter(Boolean);
+    const alumniCategory = document.getElementById('alumni');
 
-    function scrollMemberCategoryIntoView(category) {
-        const categoryElement = document.getElementById(category);
-        if (categoryElement && membersDetail) {
-            membersDetail.scrollTo({
-                top: categoryElement.offsetTop - membersDetail.offsetTop,
-                behavior: 'smooth'
-            });
-        }
+    if (!tabButtons.length || !membersDetail || !alumniCategory) return;
+
+    function activateMemberTab(tabName) {
+        const isAlumni = tabName === 'alumni';
+
+        tabButtons.forEach(button => {
+            const active = button.getAttribute('data-member-tab') === tabName;
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+
+        currentCategories.forEach(category => {
+            category.classList.toggle('hidden', isAlumni);
+        });
+        alumniCategory.classList.toggle('hidden', !isAlumni);
+        membersDetail.classList.add('active');
+        membersDetail.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    
-    avatarPreviews.forEach(avatar => {
-        avatar.addEventListener('click', function() {
-            // 切换详情区域显示状态
-            if (membersDetail.classList.contains('active')) {
-                // 如果当前头像已经是激活状态，则关闭详情
-                if (this.classList.contains('active')) {
-                    membersDetail.classList.remove('active');
-                    this.classList.remove('active');
-                } else {
-                    // 否则切换激活的头像
-                    document.querySelector('.member-avatar-preview.active')?.classList.remove('active');
-                    this.classList.add('active');
-                    
-                    // 滚动到对应的成员类别
-                    const category = this.getAttribute('data-category');
-                    setTimeout(() => scrollMemberCategoryIntoView(category), 100);
-                }
-            } else {
-                // 打开详情区域
-                membersDetail.classList.add('active');
-                this.classList.add('active');
-                
-                // 滚动到对应的成员类别
-                const category = this.getAttribute('data-category');
-                setTimeout(() => scrollMemberCategoryIntoView(category), 300);
-            }
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            activateMemberTab(this.getAttribute('data-member-tab'));
         });
     });
 }
